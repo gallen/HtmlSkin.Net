@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metro/3.0.17/css/metro.min.css">
+    <title>HtmlSkin.net Example</title>
+</head>
+<body>
+    <div class="contianer">
+        <h1>Hello world!</h1>
+        <button class="button primary" onclick="HtmlSkinHub.call('Test1')">test1</button>
+        <button class="button primary" onclick="HtmlSkinHub.call('Test2', 'Hello, .Net')">test2</button>
+        <button class="button primary" onclick="HtmlSkinHub.call('TestCallBack')">Test CallBack</button>
+        <button class="button primary" onclick="alert(HtmlSkinHub.call('TestReturn'))">Test Return</button>
+        <br/>
+        <br/>
+        <button class="button primary" onclick="alert(HtmlSkinHub.call('SelectFile'))">Select File</button>
+        <br/>
+        <br/>
+        <button class="button primary" onclick="HtmlSkinHub.call('SyncProgress')">Progress in Sync</button>
+        <div id="sync_progress"></div>
+        <br/>
+        <br/>
+        <button class="button primary" onclick="HtmlSkinHub.call('AsyncProgress')">Progress in Async</button>
+        <div id="async_progress"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="HtmlSkinHubNoModule.js"></script>
+    <script>
+        HtmlSkinHub.methods({
+            callBack: function (msg) {
+                alert("callBack from .net side: " + msg);
+            },
+            showProgressSync: function(step) {
+                $('#sync_progress').text(step);
+            },
+            showProgressAsync: function (step) {
+                $('#async_progress').text(step);
+            }
+        });
+    </script>
+</body>
+</html>
