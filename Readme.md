@@ -50,7 +50,7 @@ Two simple things :)
                 _browserHub = new MyBrowserHub(webBrowser, htmlPath);
 
             }
-            private BrowserHub _browserHub;
+            private MyBrowserHub _browserHub;
         }
      ```
   4. Reference client javascript library in your main UI module(either html file ***OR*** javascript module if you use tools like webpack to build
@@ -104,7 +104,8 @@ Two simple things :)
         HtmlSkinHub.methods({
             callBack: function (msg) {
                 alert("callBack from .net side: " + msg);
-            },     
+            }, 
+        });    
      ```
      The function has to be wrapped inside 'HtmlSkinHub.methods' function.
   2. Call the function from your BrowserHub class in .Net
@@ -166,7 +167,10 @@ your main UI will be frozen and the javascript function call won't got a chance 
             });
         } 
    ```
-
+3. You might need include this meta tag in your html file depends on your IE version/settings.
+    ```html
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    ```
 Things not tell please check the example project :).
 
 ***Leave me a message if you have any feedback.***
